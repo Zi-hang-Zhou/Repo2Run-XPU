@@ -1,0 +1,8 @@
+
+/repo/src/tests/conftest.py
+<<<<<<< SEARCH
+import django django.setup()
+=======
+import django
+django.setup()
+>>>>>>> REPLACE

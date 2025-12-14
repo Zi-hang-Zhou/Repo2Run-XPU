@@ -1,0 +1,10 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+[project]
+name = "recipe_scrapers"
+=======
+[project]
+version = "0.1.0"
+name = "recipe_scrapers"
+>>>>>>> REPLACE

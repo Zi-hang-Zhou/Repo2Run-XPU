@@ -1,0 +1,8 @@
+
+/repo/nlu/utils/environment/env_utils.py
+<<<<<<< SEARCH
+        from pyspark.sql import SparkSession
+=======
+        from pyspark.sql import SparkSession
+        print("Pyspark version:", pyspark.__version__)
+>>>>>>> REPLACE

@@ -1,0 +1,6 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+    "pyarrow-stubs>=10",
+=======
+>>>>>>> REPLACE

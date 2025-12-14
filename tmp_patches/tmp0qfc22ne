@@ -1,0 +1,56 @@
+
+/repo/config.py
+<<<<<<< SEARCH
+=======
+import os
+from biothings.utils.loggers import setup_default_log
+
+DATA_SRC_SERVER = 'localhost'
+DATA_SRC_PORT = 27017
+DATA_SRC_DATABASE = 'testhub_src'
+DATA_SRC_SERVER_USERNAME = ''
+DATA_SRC_SERVER_PASSWORD = ''
+
+DATA_TARGET_SERVER = 'localhost'
+DATA_TARGET_PORT = 27017
+DATA_TARGET_DATABASE = 'testhub'
+DATA_TARGET_SERVER_USERNAME = ''
+DATA_TARGET_SERVER_PASSWORD = ''
+
+HUB_DB_BACKEND = {
+    "module" : "biothings.utils.mongo",
+    "uri" : "mongodb://localhost:27017",
+}
+
+HUB_ENV = ""
+
+ACTIVE_DATASOURCES = []
+
+DOCKER_CONFIG = {
+    "connection_name_1": {
+        "tls_cert_path": "/path/to/cert.pem",
+        "tls_key_path": "/path/to/key.pem",
+        "client_url": "https://remote-docker-host:port"
+    },
+    "connection_name_2": {
+        "client_url": "ssh://user@remote-docker-host"
+    },
+}
+
+DATA_ARCHIVE_ROOT = "/tmp/testhub/datasources"
+CACHE_FOLDER = None
+DATA_PLUGIN_FOLDER = "/tmp/testhub/plugins"
+DIFF_PATH = os.path.join(DATA_ARCHIVE_ROOT, "diff")
+RELEASE_PATH = os.path.join(DATA_ARCHIVE_ROOT, "release")
+LOG_FOLDER = os.path.join(DATA_ARCHIVE_ROOT, "logs")
+logger = setup_default_log("hub", LOG_FOLDER)
+
+GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX'
+GA4_API_SECRET = 'XtXXXXXXXXXXVw'
+GA4_UID_GENERATOR_VERSION = 1
+
+GA_ACCOUNT = 'UA-123123-1'
+GA4_MEASUREMENT_ID = 'G-KXzzzzLBN'
+GA4_API_SECRET = '62rjfgrzzzzOcf7qNG5JA'
+GA4_UID_GENERATOR_VERSION = 2
+>>>>>>> REPLACE

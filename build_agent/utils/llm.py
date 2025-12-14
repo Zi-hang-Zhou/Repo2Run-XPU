@@ -1,36 +1,70 @@
-# Copyright (2025) Bytedance Ltd. and/or its affiliates 
+import requests
+import json
+import os
+import openai # 尽管我们不用它，但其他文件 import 了它，所以保留
+import time   # 确保 time 库被导入
 
-# Licensed under the Apache License, Version 2.0 (the "License"); 
-# you may not use this file except in compliance with the License. 
-# You may obtain a copy of the License at 
-
-#     https://www.apache.org/licenses/LICENSE-2.0
-
-# Unless required by applicable law or agreed to in writing, software 
-# distributed under the License is distributed on an "AS IS" BASIS, 
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-# See the License for the specific language governing permissions and 
-# limitations under the License. 
+def get_llm_response(model: str, messages, temperature = 0.0, n = 1, max_tokens = 4096):
+    """
+    使用 'requests' 库（而不是 'openai' 库）来调用 API。
+    绕过 'openai==0.28.0' 库中处理 http api_base 的 Bug。
+    """
 
 
-import openai
-import time
+    key = os.environ.get("OPENAI_API_KEY")
+    base_url = os.environ.get("OPENAI_API_BASE")
 
-def get_llm_response(model: str, messages, temperature = 0.0, n = 1, max_tokens = 1024):
+    if not key or not base_url:
+        print("错误：OPENAI_API_KEY 或 OPENAI_API_BASE 环境变量未设置！")
+        return [None], {"total_tokens": 0}
+
+    url = f"{base_url}/chat/completions"
+
+
+    payload = {
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": max_tokens
+    }
+
+    payload_str = json.dumps(payload)
+
+    headers = {
+        'Authorization': f'Bearer {key}',
+        'Content-Type': 'application/json',
+    }
+
+
     max_retry = 5
     count = 0
-    while count < max_retry:
+    while True:
         try:
-            response = openai.ChatCompletion.create(
-                model=model,
-                messages=messages,
-                temperature=temperature,
-                n=n,
-                max_tokens=max_tokens
-            )
-            return response.choices[0].message.content, response.usage
+            response = requests.request("POST", url, headers=headers, data=payload_str, timeout=300)
+            response.raise_for_status() 
+            response_json = response.json()
+
+            if "error" in response_json:
+                print(f"API 代理返回错误: {response_json['error']}")
+                raise Exception(response_json['error'])
+
+            result_text = response_json["choices"][0]["message"]["content"]
+            usage_data = response_json.get("usage", {"total_tokens": 0, "prompt_tokens": 0, "completion_tokens": 0})
+
+            return [result_text], usage_data
+
         except Exception as e:
-            print(f"Error: {e}")
-            count += 1
+            count = count + 1
+            print(f"LLM API 调用失败 (第 {count} 次尝试): {e}")
+
+            try:
+                if response:
+                    print(f"失败时的响应内容: {response.text[:500]}...")
+            except:
+                pass
+
+            if count > max_retry:
+                print(f"达到最大重试次数 ({max_retry})，彻底失败。")
+                return [None], {"total_tokens": 0}
+
             time.sleep(3)
-    return None, None

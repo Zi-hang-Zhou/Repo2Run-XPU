@@ -1,0 +1,7 @@
+
+/repo/neurogym/wrappers/__init__.py
+<<<<<<< SEARCH
+from neurogym.wrappers.block import TrialHistoryV2
+=======
+from neurogym.wrappers.block import TrialHistoryV2 as TrialHistory
+>>>>>>> REPLACE

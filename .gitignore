@@ -87,4 +87,24 @@ db.sqlite3-journal
 output/
 logs/
 temp/
-.build_cache/
+# 忽略巨大的输出目录
+output/
+tmp/
+data/
+
+# 忽略 Python 缓存
+__pycache__/
+*.pyc
+
+# 忽略环境配置和密钥 (绝对不能上传！！！)
+.env
+.venv/
+venv/
+
+# 忽略 IDE 配置
+.vscode/
+.idea/
+
+# 忽略数据库文件 (如果是本地文件版)
+*.db
+*.sqlite.build_cache/

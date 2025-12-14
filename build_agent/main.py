@@ -30,6 +30,24 @@ from utils.integrate_dockerfile import integrate_dockerfile
 import ast
 import shutil
 
+try:
+    from dotenv import load_dotenv
+    # 算出 .env 文件的绝对路径 (假设在 Repo2Run 根目录下)
+    # 当前文件在 build_agent/multi_main.py，所以是父目录的父目录
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    env_path = os.path.join(root_dir, '.env')
+    
+    # 加载它！
+    if os.path.exists(env_path):
+        load_dotenv(env_path)
+        print(f"✅ [Init] 已自动加载环境变量: {env_path}")
+    else:
+        print(f"⚠️ [Init] 未找到 .env 文件: {env_path}")
+except ImportError:
+    print("⚠️ [Init] 缺少 python-dotenv 库，请确保已安装 (pip install python-dotenv)")
+# -------------------------
+
+
 def move_files_to_repo(source_folder):
     # 定义目标文件夹所处的路径
     target_folder = os.path.join(source_folder, 'repo_inner_directory_long_long_name_to_avoid_duplicate')
@@ -120,8 +138,8 @@ def main():
     subprocess.run(init_cmd, check=True, shell=True)
     
     def timer():
-        time.sleep(3600*2)  # 等待2h
-        print("Timeout for 2 hour!")
+        time.sleep(3600)  # 等待2h
+        print("Timeout for 1 hour!")
         os._exit(1)  # 强制退出程序
 
     # 启动定时器线程
@@ -135,7 +153,7 @@ def main():
 
     configuration_sandbox = Sandbox("python:3.10", full_name, root_path)
     configuration_sandbox.start_container()
-    configuration_agent = Configuration(configuration_sandbox, 'python:3.10', full_name, root_path, 100)
+    configuration_agent = Configuration(configuration_sandbox, 'python:3.10', full_name, root_path, llm, 100)
     msg, outer_commands = configuration_agent.run('/tmp', trajectory, waiting_list, conflict_list)
     with open(f'{root_path}/output/{full_name.split("/")[0]}/{full_name.split("/")[1]}/track.json', 'w') as w1:
         w1.write(json.dumps(msg, indent=4))

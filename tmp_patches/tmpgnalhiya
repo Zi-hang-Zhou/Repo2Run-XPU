@@ -1,0 +1,16 @@
+
+/repo/lfs/checkout/tests/__init__.py
+<<<<<<< SEARCH
+from collections import Counter, Iterator, Mapping, OrderedDict
+=======
+from collections import Counter, OrderedDict
+from collections.abc import Iterator, Mapping
+>>>>>>> REPLACE
+
+/repo/lfs/integrationtests/windmilltests/__init__.py
+<<<<<<< SEARCH
+from collections import Counter, Iterator, Mapping, OrderedDict
+=======
+from collections import Counter, OrderedDict
+from collections.abc import Iterator, Mapping
+>>>>>>> REPLACE

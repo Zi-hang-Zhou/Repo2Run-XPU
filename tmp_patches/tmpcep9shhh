@@ -1,0 +1,7 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+dev = ["tox", "pastas[formatting,linting,ci,rtd]"]
+=======
+dev = ["tox"]
+>>>>>>> REPLACE

@@ -1,0 +1,7 @@
+
+/repo/setup.py
+<<<<<<< SEARCH
+    'PyYAML >= 3.11, < 5.0',
+=======
+    'PyYAML',
+>>>>>>> REPLACE

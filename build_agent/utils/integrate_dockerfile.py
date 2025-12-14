@@ -165,13 +165,13 @@ safe_cmd = [
 
 # 替换没有版本号的包名成带版本号的函数
 def replace_versions(command, pipdeptree_data):
-    # print(command)
+
     args = parse_pip_install_arguments(command)
     new_requirements = []
 
     for requirement in args.requirements[1:]:
         if '==' not in requirement:
-            # 未指定版本号的包名替换为 `<package_name>==<version>`
+
             package_name = requirement
             package_version = find_package_version(package_name, pipdeptree_data)
             if package_version:
@@ -181,8 +181,7 @@ def replace_versions(command, pipdeptree_data):
         else:
             new_requirements.append(requirement)
     
-    # print(new_requirements)
-    # 根据解析的内容重构命令
+
     if len(new_requirements) > 0:
         new_command = f'pip install {" ".join(new_requirements)}'
     else:
@@ -274,7 +273,7 @@ def integrate_dockerfile(root_path):
     repo_name = root_path.split('/')[-1]
     base_image_st = 'FROM python:3.10'
     workdir_st = f'WORKDIR /'
-    # 将patch文件夹移到根目录下，为/patch
+
 
     copy_st = f'COPY search_patch /search_patch'
     copy_edit_st = f'COPY code_edit.py /code_edit.py'
@@ -295,12 +294,19 @@ def integrate_dockerfile(root_path):
         commands_data = json.load(r1)
     with open(f'{root_path}/pipdeptree.json', 'r') as r2:
         pipdeptree_data = json.load(r2)
+    outer_command = [] 
+    if os.path.exists(f'{root_path}/outer_commands.json'):
+        try:
+            with open(f'{root_path}/outer_commands.json', 'r') as r3:
+                outer_command = json.load(r3)
+        except Exception as e:
+            print(f"Warning: Failed to load outer_commands.json: {e}")
     diff_no = 1
     for command in commands_data:
         res = generate_statement(command, pipdeptree_data)
         if res == -1:
             continue
-        # 修改base镜像，清空container_run_set
+
         if res.startswith('FROM'):
             base_image_st = res
             container_run_set = list()
@@ -314,7 +320,7 @@ def integrate_dockerfile(root_path):
         else:
             container_run_set.append(res)
     
-    # 组合最后的顺序
+
     dockerfile.append(base_image_st)
     dockerfile.append(workdir_st)
     if os.path.exists(f'{root_path}/patch'):

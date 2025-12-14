@@ -1,0 +1,7 @@
+
+/repo/pytest.ini
+<<<<<<< SEARCH
+=======
+[pytest]
+addopts = --import-mode=importlib
+>>>>>>> REPLACE

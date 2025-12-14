@@ -1,0 +1,9 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+all = [
+    "torchgeo[datasets,docs,style,tests]",
+]
+=======
+all = []
+>>>>>>> REPLACE

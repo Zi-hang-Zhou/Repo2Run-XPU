@@ -1,0 +1,8 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+ruff = "^0.4.10"
+=======
+ruff = "^0.4.10"
+aiosqlite = "^0.22.0"
+>>>>>>> REPLACE

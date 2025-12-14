@@ -1,0 +1,18 @@
+
+/repo/neurogym/wrappers/__init__.py
+<<<<<<< SEARCH
+from neurogym.wrappers.block import TrialHistoryV2 as TrialHistory
+=======
+from neurogym.wrappers.block import TrialHistoryV2 as TrialHistory
+
+class Identity:
+    def __init__(self, env, id_=''):
+        self.env = env
+        self.id = id_
+
+    def reset(self, **kwargs):
+        return self.env.reset(**kwargs)
+
+    def step(self, action):
+        return self.env.step(action)
+>>>>>>> REPLACE

@@ -2,4 +2,9 @@ docker==7.1.0
 pexpect==4.9.0
 openpyxl==3.1.4
 pandas==2.2.2
-openai==1.65.2
+openai==0.28.0
+psycopg2-binary
+pgvector
+numpy
+# 如果之前没有 dotenv
+python-dotenv

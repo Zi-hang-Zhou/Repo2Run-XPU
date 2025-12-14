@@ -188,14 +188,29 @@ def extract_diffs(text):
     return diffs
 
 def save_diff_description(text):
-    temp_dir = "/tmp/patch"
+    # --- 修改点 1: 改变路径 ---
+    # 不再使用系统级的 /tmp/patch，而是使用当前项目目录下的 tmp_patches 文件夹
+    # 这样文件夹就是你创建的，你拥有完全的读写权限，不需要 sudo
+    temp_dir = os.path.join(os.getcwd(), "tmp_patches")
+    
+    # 确保目录存在
     os.makedirs(temp_dir, exist_ok=True)
-    cmd = f"sudo chmod -R 777 {temp_dir}"
-    subprocess.run(cmd, check=True, shell=True)
+
+    # --- 修改点 2: 移除 chmod 777 ---
+    # 因为是你自己的目录，不需要再尝试修改目录权限了
+    
+    # 创建临时文件
     with tempfile.NamedTemporaryFile(mode='w+', dir=temp_dir, delete=False) as temp_file:
         temp_file_path = temp_file.name
-        os.chmod(temp_file_path, 0o777)
+        
+        # 赋予文件宽松的权限，以防 Docker 容器内的用户读取时受限
+        try:
+            os.chmod(temp_file_path, 0o777)
+        except Exception:
+            pass # 即使改失败通常也不影响读取
+            
         temp_file.write(text)
+        
     return temp_file_path
 
 if __name__=='__main__':

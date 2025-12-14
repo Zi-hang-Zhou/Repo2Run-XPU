@@ -1,0 +1,7 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+django_find_project = false
+=======
+django_find_project = true
+>>>>>>> REPLACE

@@ -1,0 +1,70 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+[project]
+name = "pytest-xdist"
+description = "pytest xdist plugin for distributed testing, most importantly across multiple CPUs"
+readme = "README.rst"
+license = {file="LICENSE"}
+authors = [{name = "holger krekel and contributors", email = "pytest-dev@python.org"}, {email = "holger@merlinux.eu"}]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Pytest",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS :: MacOS X",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Utilities",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "execnet>=2.1",
+    "pytest>=7.0.0",
+]
+dynamic = ["version"]
+=======
+[project]
+version = "1.0.0"
+name = "pytest-xdist"
+description = "pytest xdist plugin for distributed testing, most importantly across multiple CPUs"
+readme = "README.rst"
+license = {file="LICENSE"}
+authors = [{name = "holger krekel and contributors", email = "pytest-dev@python.org"}, {email = "holger@merlinux.eu"}]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Pytest",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS :: MacOS X",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Utilities",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "execnet>=2.1",
+    "pytest>=7.0.0",
+]
+dynamic = ["version"]
+>>>>>>> REPLACE

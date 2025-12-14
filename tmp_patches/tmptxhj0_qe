@@ -1,0 +1,19 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+[tool.poetry.dependencies]
+=======
+packages = [
+    { include = "core" },
+    { include = "devices" },
+    { include = "messaging" },
+    { include = "net" },
+    { include = "peering" },
+    { include = "peeringdb" },
+    { include = "users" },
+    { include = "utils" },
+    { include = "webhooks" },
+]
+
+[tool.poetry.dependencies]
+>>>>>>> REPLACE

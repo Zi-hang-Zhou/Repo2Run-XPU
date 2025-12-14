@@ -1,0 +1,14 @@
+
+/repo/requirements.txt
+<<<<<<< SEARCH
+Default==0.1.2
+funcsigs==1.0.2
+new==1.0
+sublime==0.1.0
+typing_extensions==4.15.0
+=======
+funcsigs==1.0.2
+typing_extensions==4.15.0
+unittesting
+GitSavvy
+>>>>>>> REPLACE

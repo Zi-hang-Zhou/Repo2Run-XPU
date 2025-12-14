@@ -1,0 +1,7 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+develop = ['mpmath[tests]', 'flake518>=1.5; python_version>="3.9"',
+=======
+develop = ['flake518>=1.5; python_version>="3.9"',
+>>>>>>> REPLACE

@@ -1,0 +1,20 @@
+
+/repo/setup.py
+<<<<<<< SEARCH
+# Check if the current directory name matches the expected name
+if current_dir.name != expected_dir_name:
+    # Construct the new directory path
+    new_dir = current_dir.parent / expected_dir_name
+    # Check if a directory with the expected name already exists
+    if new_dir.exists():
+        print(f"Error: A directory named '{expected_dir_name}' already exists.")
+        sys.exit(1)
+    # Rename the current directory
+    current_dir.rename(new_dir)
+    # Optionally, you can change the current working directory to the new path
+    os.chdir(new_dir)
+else:
+    print("Path is correct")
+=======
+print("Skipping directory renaming step")
+>>>>>>> REPLACE

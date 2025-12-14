@@ -1,0 +1,7 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+dev = ['bigbang-py[test]', 'black', 'isort', 'pre-commit']
+=======
+dev = ['black', 'isort', 'pre-commit']
+>>>>>>> REPLACE

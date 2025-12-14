@@ -1,0 +1,7 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+file = "LICENSE"
+=======
+name = "Apache-2.0"
+>>>>>>> REPLACE

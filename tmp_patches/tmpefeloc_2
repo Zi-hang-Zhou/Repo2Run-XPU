@@ -1,0 +1,7 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+[tool.poetry.dev-dependencies]
+=======
+[tool.poetry.group.dev.dependencies]
+>>>>>>> REPLACE

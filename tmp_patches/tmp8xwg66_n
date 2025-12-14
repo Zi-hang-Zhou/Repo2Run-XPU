@@ -1,0 +1,7 @@
+
+/repo/GitSavvy/setup.py
+<<<<<<< SEARCH
+    packages=find_packages(),
+=======
+    packages=find_packages(include=['core', 'stubs', 'syntax', 'github', 'gitlab', 'common', 'messages']),
+>>>>>>> REPLACE

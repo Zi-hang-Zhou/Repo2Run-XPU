@@ -1,0 +1,7 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+requires-python = ">=3.9"
+=======
+requires-python = ">=3.9,<4"
+>>>>>>> REPLACE

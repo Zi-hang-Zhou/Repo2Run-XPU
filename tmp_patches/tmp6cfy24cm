@@ -1,0 +1,8 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+description = "Another unofficial Qt installer"
+=======
+version = "0.1.0"
+description = "Another unofficial Qt installer"
+>>>>>>> REPLACE

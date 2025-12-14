@@ -1,0 +1,9 @@
+
+/repo/src/tests/conftest.py
+<<<<<<< SEARCH
+from pretalx.event.models import Event, Organiser, Team, TeamInvite
+=======
+import django
+django.setup()
+from pretalx.event.models import Event, Organiser, Team, TeamInvite
+>>>>>>> REPLACE

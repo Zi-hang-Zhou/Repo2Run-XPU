@@ -1,0 +1,345 @@
+2025-12-04 21:41:08.159 CST [183641] LOG:  starting PostgreSQL 17.6 on x86_64-conda-linux-gnu, compiled by x86_64-conda-linux-gnu-cc (Anaconda gcc) 11.2.0, 64-bit
+2025-12-04 21:41:08.159 CST [183641] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-12-04 21:41:08.160 CST [183641] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2025-12-04 21:41:08.163 CST [183644] LOG:  database system was shut down at 2025-12-04 21:40:58 CST
+2025-12-04 21:41:08.168 CST [183641] LOG:  database system is ready to accept connections
+2025-12-04 21:41:33.974 CST [183935] ERROR:  extension "vector" is not available
+2025-12-04 21:41:33.974 CST [183935] DETAIL:  Could not open extension control file "/home/zihang/miniconda3/envs/torch_gpu/share/extension/vector.control": No such file or directory.
+2025-12-04 21:41:33.974 CST [183935] HINT:  The extension must first be installed on the system where PostgreSQL is running.
+2025-12-04 21:41:33.974 CST [183935] STATEMENT:  CREATE EXTENSION vector;
+2025-12-04 21:43:56.533 CST [186679] ERROR:  database "xpu_db" already exists
+2025-12-04 21:43:56.533 CST [186679] STATEMENT:  CREATE DATABASE xpu_db;
+2025-12-04 21:44:10.058 CST [186776] ERROR:  extension "vector" is not available
+2025-12-04 21:44:10.058 CST [186776] DETAIL:  Could not open extension control file "/home/zihang/miniconda3/envs/torch_gpu/share/extension/vector.control": No such file or directory.
+2025-12-04 21:44:10.058 CST [186776] HINT:  The extension must first be installed on the system where PostgreSQL is running.
+2025-12-04 21:44:10.058 CST [186776] STATEMENT:  CREATE EXTENSION vector;
+2025-12-04 21:44:13.782 CST [186776] ERROR:  extension "vector" is not available
+2025-12-04 21:44:13.782 CST [186776] DETAIL:  Could not open extension control file "/home/zihang/miniconda3/envs/torch_gpu/share/extension/vector.control": No such file or directory.
+2025-12-04 21:44:13.782 CST [186776] HINT:  The extension must first be installed on the system where PostgreSQL is running.
+2025-12-04 21:44:13.782 CST [186776] STATEMENT:  CREATE EXTENSION vector;
+2025-12-04 21:46:08.241 CST [183642] LOG:  checkpoint starting: time
+2025-12-04 21:47:44.693 CST [183642] LOG:  checkpoint complete: wrote 966 buffers (5.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=96.448 s, sync=0.002 s, total=96.452 s; sync files=310, longest=0.001 s, average=0.001 s; distance=4520 kB, estimate=4520 kB; lsn=0/1952B08, redo lsn=0/1952A78
+2025-12-04 21:51:08.794 CST [183642] LOG:  checkpoint starting: time
+2025-12-04 21:51:25.524 CST [183642] LOG:  checkpoint complete: wrote 168 buffers (1.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=16.728 s, sync=0.001 s, total=16.731 s; sync files=64, longest=0.001 s, average=0.001 s; distance=991 kB, estimate=4167 kB; lsn=0/1A4A770, redo lsn=0/1A4A718
+2025-12-04 21:56:08.532 CST [183642] LOG:  checkpoint starting: time
+2025-12-04 21:56:08.736 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.204 s; sync files=3, longest=0.001 s, average=0.001 s; distance=2 kB, estimate=3750 kB; lsn=0/1A4B1E0, redo lsn=0/1A4B188
+2025-12-05 21:21:30.827 CST [183642] LOG:  checkpoint starting: time
+2025-12-05 21:21:56.600 CST [183642] LOG:  checkpoint complete: wrote 258 buffers (1.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=25.752 s, sync=0.001 s, total=25.774 s; sync files=44, longest=0.001 s, average=0.001 s; distance=605 kB, estimate=3436 kB; lsn=0/1AE26A8, redo lsn=0/1AE2618
+2025-12-05 21:51:31.184 CST [183642] LOG:  checkpoint starting: time
+2025-12-05 21:51:32.089 CST [183642] LOG:  checkpoint complete: wrote 10 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.902 s, sync=0.002 s, total=0.906 s; sync files=8, longest=0.002 s, average=0.001 s; distance=49 kB, estimate=3097 kB; lsn=0/1AEEBD0, redo lsn=0/1AEEB78
+2025-12-05 21:56:31.189 CST [183642] LOG:  checkpoint starting: time
+2025-12-05 21:56:55.251 CST [183642] LOG:  checkpoint complete: wrote 239 buffers (1.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=24.059 s, sync=0.001 s, total=24.062 s; sync files=34, longest=0.001 s, average=0.001 s; distance=804 kB, estimate=2868 kB; lsn=0/1BB7CD8, redo lsn=0/1BB7C48
+2025-12-06 12:26:46.593 CST [183642] LOG:  checkpoint starting: time
+2025-12-06 12:26:54.455 CST [183642] LOG:  checkpoint complete: wrote 79 buffers (0.5%); 1 WAL file(s) added, 0 removed, 0 recycled; write=7.814 s, sync=0.001 s, total=7.863 s; sync files=13, longest=0.001 s, average=0.001 s; distance=434 kB, estimate=2624 kB; lsn=0/1C245A8, redo lsn=0/1C24518
+2025-12-08 21:37:46.260 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 21:37:47.706 CST [183642] LOG:  checkpoint complete: wrote 15 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.405 s, sync=0.001 s, total=1.446 s; sync files=12, longest=0.001 s, average=0.001 s; distance=39 kB, estimate=2366 kB; lsn=0/1C2E320, redo lsn=0/1C2E2C8
+2025-12-08 21:42:46.806 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 21:42:50.618 CST [183642] LOG:  checkpoint complete: wrote 39 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.809 s, sync=0.001 s, total=3.812 s; sync files=16, longest=0.001 s, average=0.001 s; distance=164 kB, estimate=2146 kB; lsn=0/1C57480, redo lsn=0/1C57428
+2025-12-08 21:47:46.718 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 21:47:47.422 CST [183642] LOG:  checkpoint complete: wrote 8 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.702 s, sync=0.001 s, total=0.705 s; sync files=4, longest=0.001 s, average=0.001 s; distance=33 kB, estimate=1934 kB; lsn=0/1C5FBD0, redo lsn=0/1C5FB78
+2025-12-08 21:52:46.484 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 21:52:47.690 CST [183642] LOG:  checkpoint complete: wrote 13 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.204 s, sync=0.001 s, total=1.206 s; sync files=9, longest=0.001 s, average=0.001 s; distance=53 kB, estimate=1746 kB; lsn=0/1C6D270, redo lsn=0/1C6D218
+2025-12-08 21:57:46.790 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 21:57:46.994 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=9 kB, estimate=1573 kB; lsn=0/1C6F970, redo lsn=0/1C6F918
+2025-12-08 22:02:47.094 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:02:48.400 CST [183642] LOG:  checkpoint complete: wrote 14 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.303 s, sync=0.001 s, total=1.307 s; sync files=7, longest=0.001 s, average=0.001 s; distance=39 kB, estimate=1419 kB; lsn=0/1C79690, redo lsn=0/1C79638
+2025-12-08 22:07:47.500 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:07:47.905 CST [183642] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.402 s, sync=0.001 s, total=0.405 s; sync files=3, longest=0.001 s, average=0.001 s; distance=11 kB, estimate=1278 kB; lsn=0/1C7C5D8, redo lsn=0/1C7C580
+2025-12-08 22:12:48.005 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:12:48.209 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=9 kB, estimate=1151 kB; lsn=0/1C7EAA8, redo lsn=0/1C7EA50
+2025-12-08 22:17:48.309 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:17:49.315 CST [183642] LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.003 s, sync=0.001 s, total=1.006 s; sync files=6, longest=0.001 s, average=0.001 s; distance=47 kB, estimate=1041 kB; lsn=0/1C8A780, redo lsn=0/1C8A728
+2025-12-08 22:22:48.415 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:22:48.619 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.204 s; sync files=2, longest=0.001 s, average=0.001 s; distance=12 kB, estimate=938 kB; lsn=0/1C8D7B8, redo lsn=0/1C8D760
+2025-12-08 22:27:48.719 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:27:48.923 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.204 s; sync files=2, longest=0.001 s, average=0.001 s; distance=10 kB, estimate=845 kB; lsn=0/1C90350, redo lsn=0/1C902F8
+2025-12-08 22:32:49.023 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:32:50.129 CST [183642] LOG:  checkpoint complete: wrote 12 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.103 s, sync=0.001 s, total=1.106 s; sync files=6, longest=0.001 s, average=0.001 s; distance=57 kB, estimate=766 kB; lsn=0/1C9EAE0, redo lsn=0/1C9EA88
+2025-12-08 22:37:49.229 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:37:52.240 CST [183642] LOG:  checkpoint complete: wrote 31 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.006 s, sync=0.001 s, total=3.011 s; sync files=11, longest=0.001 s, average=0.001 s; distance=154 kB, estimate=705 kB; lsn=0/1CC55C8, redo lsn=0/1CC5570
+2025-12-08 22:42:49.340 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:42:51.447 CST [183642] LOG:  checkpoint complete: wrote 22 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.104 s, sync=0.001 s, total=2.107 s; sync files=9, longest=0.001 s, average=0.001 s; distance=125 kB, estimate=647 kB; lsn=0/1CE4A98, redo lsn=0/1CE4A08
+2025-12-08 22:47:49.547 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:47:52.255 CST [183642] LOG:  checkpoint complete: wrote 28 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.706 s, sync=0.001 s, total=2.709 s; sync files=10, longest=0.001 s, average=0.001 s; distance=142 kB, estimate=597 kB; lsn=0/1D08450, redo lsn=0/1D083F8
+2025-12-08 22:52:49.355 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:52:50.560 CST [183642] LOG:  checkpoint complete: wrote 13 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.203 s, sync=0.001 s, total=1.206 s; sync files=4, longest=0.001 s, average=0.001 s; distance=66 kB, estimate=544 kB; lsn=0/1D18F90, redo lsn=0/1D18F38
+2025-12-08 22:57:49.660 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 22:57:50.066 CST [183642] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.402 s, sync=0.002 s, total=0.406 s; sync files=2, longest=0.002 s, average=0.001 s; distance=17 kB, estimate=491 kB; lsn=0/1D1D5E0, redo lsn=0/1D1D588
+2025-12-08 23:02:49.166 CST [183642] LOG:  checkpoint starting: time
+2025-12-08 23:02:50.972 CST [183642] LOG:  checkpoint complete: wrote 19 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.804 s, sync=0.001 s, total=1.807 s; sync files=8, longest=0.001 s, average=0.001 s; distance=105 kB, estimate=452 kB; lsn=0/1D37A70, redo lsn=0/1D37A18
+2025-12-09 00:07:50.872 CST [183642] LOG:  checkpoint starting: time
+2025-12-09 00:07:51.295 CST [183642] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.402 s, sync=0.001 s, total=0.424 s; sync files=2, longest=0.001 s, average=0.001 s; distance=25 kB, estimate=410 kB; lsn=0/1D3DF70, redo lsn=0/1D3DF18
+2025-12-11 08:48:50.342 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 08:48:50.462 CST [183642] LOG:  checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.102 s, sync=0.001 s, total=0.121 s; sync files=1, longest=0.001 s, average=0.001 s; distance=4 kB, estimate=369 kB; lsn=0/1D3F060, redo lsn=0/1D3F008
+2025-12-11 08:52:06.882 CST [1777900] ERROR:  column "source" does not exist at character 12
+2025-12-11 08:52:06.882 CST [1777900] STATEMENT:  SELECT id, source, telemetry FROM xpu_entries ORDER BY created_at DESC;
+2025-12-11 08:53:50.562 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 08:53:51.467 CST [183642] LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.903 s, sync=0.001 s, total=0.906 s; sync files=5, longest=0.001 s, average=0.001 s; distance=17 kB, estimate=334 kB; lsn=0/1D434B0, redo lsn=0/1D43458
+2025-12-11 09:13:50.868 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 09:13:51.174 CST [183642] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.302 s, sync=0.001 s, total=0.307 s; sync files=2, longest=0.001 s, average=0.001 s; distance=14 kB, estimate=302 kB; lsn=0/1D46F88, redo lsn=0/1D46F30
+2025-12-11 09:18:50.274 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 09:18:53.288 CST [183642] LOG:  checkpoint complete: wrote 31 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.011 s, sync=0.001 s, total=3.015 s; sync files=10, longest=0.001 s, average=0.001 s; distance=102 kB, estimate=282 kB; lsn=0/1D63138, redo lsn=0/1D60830
+2025-12-11 09:23:50.388 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 09:23:50.794 CST [183642] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.402 s, sync=0.001 s, total=0.406 s; sync files=2, longest=0.001 s, average=0.001 s; distance=19 kB, estimate=255 kB; lsn=0/1D655D8, redo lsn=0/1D65580
+2025-12-11 09:28:50.894 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 09:28:52.601 CST [183642] LOG:  checkpoint complete: wrote 18 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.705 s, sync=0.001 s, total=1.708 s; sync files=8, longest=0.001 s, average=0.001 s; distance=87 kB, estimate=239 kB; lsn=0/1D7B450, redo lsn=0/1D7B3F8
+2025-12-11 09:33:50.701 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 09:33:52.211 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.506 s, sync=0.002 s, total=1.511 s; sync files=7, longest=0.002 s, average=0.001 s; distance=67 kB, estimate=221 kB; lsn=0/1D8C1C8, redo lsn=0/1D8C170
+2025-12-11 09:38:50.249 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 09:38:50.755 CST [183642] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.503 s, sync=0.001 s, total=0.506 s; sync files=2, longest=0.001 s, average=0.001 s; distance=31 kB, estimate=202 kB; lsn=0/1D93DE8, redo lsn=0/1D93D90
+2025-12-11 09:43:50.856 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 09:43:52.469 CST [183642] LOG:  checkpoint complete: wrote 17 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.608 s, sync=0.002 s, total=1.614 s; sync files=7, longest=0.001 s, average=0.001 s; distance=77 kB, estimate=190 kB; lsn=0/1DA7558, redo lsn=0/1DA7500
+2025-12-11 09:48:50.569 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 09:48:51.075 CST [183642] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.503 s, sync=0.001 s, total=0.506 s; sync files=2, longest=0.001 s, average=0.001 s; distance=23 kB, estimate=173 kB; lsn=0/1DAD2A0, redo lsn=0/1DAD248
+2025-12-11 09:53:50.175 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 09:53:51.784 CST [183642] LOG:  checkpoint complete: wrote 17 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.605 s, sync=0.002 s, total=1.609 s; sync files=7, longest=0.001 s, average=0.001 s; distance=72 kB, estimate=163 kB; lsn=0/1DBF480, redo lsn=0/1DBF428
+2025-12-11 09:58:50.884 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 09:58:52.090 CST [183642] LOG:  checkpoint complete: wrote 13 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.204 s, sync=0.001 s, total=1.207 s; sync files=4, longest=0.001 s, average=0.001 s; distance=61 kB, estimate=153 kB; lsn=0/1DCE978, redo lsn=0/1DCE920
+2025-12-11 10:03:50.190 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 10:03:53.006 CST [183642] LOG:  checkpoint complete: wrote 29 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.807 s, sync=0.004 s, total=2.816 s; sync files=11, longest=0.004 s, average=0.001 s; distance=133 kB, estimate=151 kB; lsn=0/1DEFED8, redo lsn=0/1DEFE48
+2025-12-11 10:08:50.015 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 10:08:50.839 CST [183642] LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.804 s, sync=0.016 s, total=0.825 s; sync files=2, longest=0.016 s, average=0.008 s; distance=27 kB, estimate=138 kB; lsn=0/1DF6D40, redo lsn=0/1DF6CE8
+2025-12-11 10:13:50.940 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 10:13:52.951 CST [183642] LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.007 s, sync=0.002 s, total=2.012 s; sync files=9, longest=0.001 s, average=0.001 s; distance=89 kB, estimate=134 kB; lsn=0/1E0D4D0, redo lsn=0/1E0D478
+2025-12-11 10:23:51.151 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 10:23:52.460 CST [183642] LOG:  checkpoint complete: wrote 14 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.306 s, sync=0.001 s, total=1.310 s; sync files=5, longest=0.001 s, average=0.001 s; distance=46 kB, estimate=125 kB; lsn=0/1E18DE0, redo lsn=0/1E18D88
+2025-12-11 10:28:51.461 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 10:28:51.767 CST [183642] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.302 s, sync=0.002 s, total=0.307 s; sync files=2, longest=0.002 s, average=0.001 s; distance=16 kB, estimate=114 kB; lsn=0/1E1D0F8, redo lsn=0/1E1D0A0
+2025-12-11 12:33:53.880 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 12:33:56.689 CST [183642] LOG:  checkpoint complete: wrote 29 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.806 s, sync=0.001 s, total=2.810 s; sync files=9, longest=0.001 s, average=0.001 s; distance=140 kB, estimate=140 kB; lsn=0/1E40220, redo lsn=0/1E401C8
+2025-12-11 12:38:53.790 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 12:39:02.206 CST [183642] LOG:  checkpoint complete: wrote 85 buffers (0.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=8.414 s, sync=0.001 s, total=8.417 s; sync files=12, longest=0.001 s, average=0.001 s; distance=300 kB, estimate=300 kB; lsn=0/1E8B438, redo lsn=0/1E8B3A8
+2025-12-11 12:43:53.306 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 12:43:55.614 CST [183642] LOG:  checkpoint complete: wrote 24 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.305 s, sync=0.001 s, total=2.308 s; sync files=10, longest=0.001 s, average=0.001 s; distance=133 kB, estimate=283 kB; lsn=0/1EB0238, redo lsn=0/1EAC7E8
+2025-12-11 12:48:53.714 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 12:48:55.821 CST [183642] LOG:  checkpoint complete: wrote 22 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.105 s, sync=0.001 s, total=2.108 s; sync files=9, longest=0.001 s, average=0.001 s; distance=95 kB, estimate=264 kB; lsn=0/1EC44D0, redo lsn=0/1EC4478
+2025-12-11 12:53:53.921 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 12:53:55.833 CST [183642] LOG:  checkpoint complete: wrote 20 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.905 s, sync=0.003 s, total=1.912 s; sync files=9, longest=0.003 s, average=0.001 s; distance=78 kB, estimate=246 kB; lsn=0/1ED8058, redo lsn=0/1ED7FB0
+2025-12-11 12:58:53.933 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 12:58:54.642 CST [183642] LOG:  checkpoint complete: wrote 8 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.703 s, sync=0.002 s, total=0.710 s; sync files=5, longest=0.002 s, average=0.001 s; distance=26 kB, estimate=224 kB; lsn=0/1EDE8F8, redo lsn=0/1EDE8A0
+2025-12-11 13:08:53.842 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 13:08:54.747 CST [183642] LOG:  checkpoint complete: wrote 10 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.903 s, sync=0.001 s, total=0.905 s; sync files=5, longest=0.001 s, average=0.001 s; distance=41 kB, estimate=205 kB; lsn=0/1EE8ED0, redo lsn=0/1EE8E78
+2025-12-11 13:13:53.847 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 13:13:54.355 CST [183642] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.502 s, sync=0.001 s, total=0.508 s; sync files=2, longest=0.001 s, average=0.001 s; distance=19 kB, estimate=187 kB; lsn=0/1EEDB80, redo lsn=0/1EEDB28
+2025-12-11 13:23:53.555 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 13:23:53.864 CST [183642] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.302 s, sync=0.003 s, total=0.310 s; sync files=2, longest=0.003 s, average=0.002 s; distance=18 kB, estimate=170 kB; lsn=0/1EF25A0, redo lsn=0/1EF2548
+2025-12-11 13:33:54.064 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 13:33:55.208 CST [183642] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.483 s, sync=0.204 s, total=1.144 s; sync files=2, longest=0.136 s, average=0.102 s; distance=14 kB, estimate=154 kB; lsn=0/1EF5F08, redo lsn=0/1EF5EB0
+2025-12-11 13:38:54.308 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 13:38:55.313 CST [183642] LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.003 s, sync=0.001 s, total=1.005 s; sync files=3, longest=0.001 s, average=0.001 s; distance=32 kB, estimate=142 kB; lsn=0/1EFDF30, redo lsn=0/1EFDED8
+2025-12-11 13:43:54.317 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 13:43:56.624 CST [183642] LOG:  checkpoint complete: wrote 24 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.305 s, sync=0.001 s, total=2.308 s; sync files=7, longest=0.001 s, average=0.001 s; distance=129 kB, estimate=141 kB; lsn=0/1F1E470, redo lsn=0/1F1E3E0
+2025-12-11 13:48:54.724 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 13:48:57.933 CST [183642] LOG:  checkpoint complete: wrote 33 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.206 s, sync=0.001 s, total=3.209 s; sync files=10, longest=0.001 s, average=0.001 s; distance=136 kB, estimate=140 kB; lsn=0/1F40730, redo lsn=0/1F406D8
+2025-12-11 13:53:55.033 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 13:53:57.641 CST [183642] LOG:  checkpoint complete: wrote 27 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.606 s, sync=0.001 s, total=2.609 s; sync files=11, longest=0.001 s, average=0.001 s; distance=118 kB, estimate=138 kB; lsn=0/1F5E0B8, redo lsn=0/1F5E060
+2025-12-11 13:58:55.741 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 13:58:56.245 CST [183642] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.502 s, sync=0.001 s, total=0.505 s; sync files=2, longest=0.001 s, average=0.001 s; distance=28 kB, estimate=127 kB; lsn=0/1F65198, redo lsn=0/1F65140
+2025-12-11 14:03:55.341 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 14:03:56.947 CST [183642] LOG:  checkpoint complete: wrote 17 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.604 s, sync=0.001 s, total=1.607 s; sync files=7, longest=0.001 s, average=0.001 s; distance=70 kB, estimate=121 kB; lsn=0/1F78838, redo lsn=0/1F769D0
+2025-12-11 14:08:56.048 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 14:08:57.354 CST [183642] LOG:  checkpoint complete: wrote 14 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.304 s, sync=0.001 s, total=1.307 s; sync files=7, longest=0.001 s, average=0.001 s; distance=63 kB, estimate=115 kB; lsn=0/1F86A40, redo lsn=0/1F869B0
+2025-12-11 14:13:56.454 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 14:13:57.760 CST [183642] LOG:  checkpoint complete: wrote 14 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.303 s, sync=0.001 s, total=1.307 s; sync files=7, longest=0.001 s, average=0.001 s; distance=55 kB, estimate=109 kB; lsn=0/1F94718, redo lsn=0/1F946C0
+2025-12-11 14:18:56.774 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 14:18:58.080 CST [183642] LOG:  checkpoint complete: wrote 14 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.304 s, sync=0.001 s, total=1.307 s; sync files=7, longest=0.001 s, average=0.001 s; distance=55 kB, estimate=104 kB; lsn=0/1FA24D0, redo lsn=0/1FA2478
+2025-12-11 14:23:56.083 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 14:23:57.289 CST [183642] LOG:  checkpoint complete: wrote 13 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.203 s, sync=0.001 s, total=1.207 s; sync files=6, longest=0.001 s, average=0.001 s; distance=58 kB, estimate=99 kB; lsn=0/1FB0F30, redo lsn=0/1FB0ED8
+2025-12-11 14:28:56.389 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 14:28:57.694 CST [183642] LOG:  checkpoint complete: wrote 14 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.303 s, sync=0.001 s, total=1.306 s; sync files=6, longest=0.001 s, average=0.001 s; distance=75 kB, estimate=97 kB; lsn=0/1FC3DC0, redo lsn=0/1FC3D68
+2025-12-11 14:33:56.795 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 14:33:58.201 CST [183642] LOG:  checkpoint complete: wrote 15 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.404 s, sync=0.001 s, total=1.407 s; sync files=6, longest=0.001 s, average=0.001 s; distance=76 kB, estimate=95 kB; lsn=0/1FD6F40, redo lsn=0/1FD6EB0
+2025-12-11 14:38:56.301 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 14:38:56.708 CST [183642] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.402 s, sync=0.001 s, total=0.407 s; sync files=2, longest=0.001 s, average=0.001 s; distance=14 kB, estimate=87 kB; lsn=0/1FDA898, redo lsn=0/1FDA840
+2025-12-11 14:43:56.808 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 14:43:59.916 CST [183642] LOG:  checkpoint complete: wrote 32 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.106 s, sync=0.001 s, total=3.109 s; sync files=8, longest=0.001 s, average=0.001 s; distance=119 kB, estimate=119 kB; lsn=0/1FF86B0, redo lsn=0/1FF8658
+2025-12-11 14:48:57.016 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 14:48:58.368 CST [183642] LOG:  checkpoint complete: wrote 8 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.940 s, sync=0.154 s, total=1.352 s; sync files=2, longest=0.154 s, average=0.077 s; distance=14 kB, estimate=109 kB; lsn=0/1FFC0C0, redo lsn=0/1FFC030
+2025-12-11 15:18:57.874 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 15:18:58.279 CST [183642] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.402 s, sync=0.001 s, total=0.405 s; sync files=2, longest=0.001 s, average=0.001 s; distance=13 kB, estimate=99 kB; lsn=0/1FFF510, redo lsn=0/1FFF4B8
+2025-12-11 15:23:57.379 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 15:23:57.783 CST [183642] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.402 s, sync=0.001 s, total=0.405 s; sync files=2, longest=0.001 s, average=0.001 s; distance=22 kB, estimate=91 kB; lsn=0/2004F70, redo lsn=0/2004F18
+2025-12-11 15:28:57.883 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 15:29:00.291 CST [183642] LOG:  checkpoint complete: wrote 25 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.405 s, sync=0.001 s, total=2.409 s; sync files=9, longest=0.001 s, average=0.001 s; distance=118 kB, estimate=118 kB; lsn=0/2022800, redo lsn=0/20227A8
+2025-12-11 15:33:57.392 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 15:33:59.199 CST [183642] LOG:  checkpoint complete: wrote 19 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.805 s, sync=0.001 s, total=1.808 s; sync files=8, longest=0.001 s, average=0.001 s; distance=85 kB, estimate=114 kB; lsn=0/2037DB0, redo lsn=0/2037D58
+2025-12-11 15:38:57.299 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 15:38:59.006 CST [183642] LOG:  checkpoint complete: wrote 18 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.704 s, sync=0.001 s, total=1.707 s; sync files=7, longest=0.001 s, average=0.001 s; distance=86 kB, estimate=112 kB; lsn=0/204D788, redo lsn=0/204D730
+2025-12-11 15:43:57.106 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 15:43:58.913 CST [183642] LOG:  checkpoint complete: wrote 19 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.804 s, sync=0.001 s, total=1.808 s; sync files=7, longest=0.001 s, average=0.001 s; distance=95 kB, estimate=110 kB; lsn=0/20656E8, redo lsn=0/2065690
+2025-12-11 15:48:58.013 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 15:48:59.520 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.507 s; sync files=6, longest=0.001 s, average=0.001 s; distance=77 kB, estimate=107 kB; lsn=0/2078DB8, redo lsn=0/2078D60
+2025-12-11 15:53:58.620 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 15:54:00.328 CST [183642] LOG:  checkpoint complete: wrote 18 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.704 s, sync=0.001 s, total=1.709 s; sync files=6, longest=0.001 s, average=0.001 s; distance=93 kB, estimate=105 kB; lsn=0/2090508, redo lsn=0/20904B0
+2025-12-11 15:58:58.428 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 15:59:00.235 CST [183642] LOG:  checkpoint complete: wrote 19 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.804 s, sync=0.001 s, total=1.807 s; sync files=6, longest=0.001 s, average=0.001 s; distance=92 kB, estimate=104 kB; lsn=0/20A7878, redo lsn=0/20A7820
+2025-12-11 16:03:58.335 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 16:04:00.242 CST [183642] LOG:  checkpoint complete: wrote 20 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.905 s, sync=0.001 s, total=1.908 s; sync files=7, longest=0.001 s, average=0.001 s; distance=42 kB, estimate=98 kB; lsn=0/20B2298, redo lsn=0/20B2240
+2025-12-11 16:08:58.342 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 16:09:00.149 CST [183642] LOG:  checkpoint complete: wrote 19 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.804 s, sync=0.001 s, total=1.807 s; sync files=7, longest=0.001 s, average=0.001 s; distance=88 kB, estimate=97 kB; lsn=0/20C8348, redo lsn=0/20C82F0
+2025-12-11 16:13:58.249 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 16:14:00.056 CST [183642] LOG:  checkpoint complete: wrote 19 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.804 s, sync=0.001 s, total=1.807 s; sync files=7, longest=0.001 s, average=0.001 s; distance=94 kB, estimate=97 kB; lsn=0/20DFD80, redo lsn=0/20DFD28
+2025-12-11 16:18:58.156 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 16:18:59.862 CST [183642] LOG:  checkpoint complete: wrote 18 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.704 s, sync=0.001 s, total=1.707 s; sync files=7, longest=0.001 s, average=0.001 s; distance=84 kB, estimate=95 kB; lsn=0/20F4FA0, redo lsn=0/20F4F48
+2025-12-11 16:23:58.943 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 16:24:00.450 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.507 s; sync files=6, longest=0.001 s, average=0.001 s; distance=68 kB, estimate=93 kB; lsn=0/2106108, redo lsn=0/21060B0
+2025-12-11 16:33:58.650 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 16:34:00.356 CST [183642] LOG:  checkpoint complete: wrote 18 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.704 s, sync=0.001 s, total=1.707 s; sync files=6, longest=0.001 s, average=0.001 s; distance=91 kB, estimate=92 kB; lsn=0/211CF10, redo lsn=0/211CEB8
+2025-12-11 16:38:58.457 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 16:39:00.065 CST [183642] LOG:  checkpoint complete: wrote 18 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.604 s, sync=0.001 s, total=1.609 s; sync files=6, longest=0.001 s, average=0.001 s; distance=96 kB, estimate=96 kB; lsn=0/21352A8, redo lsn=0/2135250
+2025-12-11 16:43:58.081 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 16:44:01.490 CST [183642] LOG:  checkpoint complete: wrote 35 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.407 s, sync=0.001 s, total=3.410 s; sync files=10, longest=0.001 s, average=0.001 s; distance=157 kB, estimate=157 kB; lsn=0/215C6F0, redo lsn=0/215C698
+2025-12-11 16:53:58.684 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 16:53:58.988 CST [183642] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.302 s, sync=0.001 s, total=0.305 s; sync files=2, longest=0.001 s, average=0.001 s; distance=14 kB, estimate=142 kB; lsn=0/215FFE0, redo lsn=0/215FF88
+2025-12-11 16:58:59.046 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 16:58:59.451 CST [183642] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.402 s, sync=0.001 s, total=0.406 s; sync files=2, longest=0.001 s, average=0.001 s; distance=14 kB, estimate=129 kB; lsn=0/2163A88, redo lsn=0/2163A30
+2025-12-11 17:03:59.547 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:04:01.855 CST [183642] LOG:  checkpoint complete: wrote 24 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.305 s, sync=0.001 s, total=2.309 s; sync files=9, longest=0.001 s, average=0.001 s; distance=109 kB, estimate=127 kB; lsn=0/2182C50, redo lsn=0/217F0E0
+2025-12-11 17:08:59.955 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:09:01.763 CST [183642] LOG:  checkpoint complete: wrote 19 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.804 s, sync=0.001 s, total=1.808 s; sync files=7, longest=0.001 s, average=0.001 s; distance=81 kB, estimate=123 kB; lsn=0/2193778, redo lsn=0/2193720
+2025-12-11 17:13:59.863 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:14:01.373 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.003 s, total=1.510 s; sync files=7, longest=0.003 s, average=0.001 s; distance=64 kB, estimate=117 kB; lsn=0/21A39E0, redo lsn=0/21A3950
+2025-12-11 17:18:59.473 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:18:59.883 CST [183642] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.402 s, sync=0.002 s, total=0.411 s; sync files=2, longest=0.002 s, average=0.001 s; distance=22 kB, estimate=107 kB; lsn=0/21A92A0, redo lsn=0/21A9248
+2025-12-11 17:23:59.983 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:24:02.392 CST [183642] LOG:  checkpoint complete: wrote 25 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.406 s, sync=0.001 s, total=2.409 s; sync files=9, longest=0.001 s, average=0.001 s; distance=124 kB, estimate=124 kB; lsn=0/21C86B0, redo lsn=0/21C8620
+2025-12-11 17:28:59.484 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:28:59.988 CST [183642] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.502 s, sync=0.001 s, total=0.505 s; sync files=2, longest=0.001 s, average=0.001 s; distance=19 kB, estimate=114 kB; lsn=0/21CD3D0, redo lsn=0/21CD378
+2025-12-11 17:34:00.015 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:34:00.927 CST [183642] LOG:  checkpoint complete: wrote 10 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.903 s, sync=0.001 s, total=0.912 s; sync files=4, longest=0.001 s, average=0.001 s; distance=44 kB, estimate=107 kB; lsn=0/21D87C0, redo lsn=0/21D8768
+2025-12-11 17:39:00.970 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:39:05.590 CST [183642] LOG:  checkpoint complete: wrote 47 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.616 s, sync=0.002 s, total=4.621 s; sync files=12, longest=0.001 s, average=0.001 s; distance=230 kB, estimate=230 kB; lsn=0/2212340, redo lsn=0/22122E8
+2025-12-11 17:44:00.651 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:44:03.964 CST [183642] LOG:  checkpoint complete: wrote 34 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.311 s, sync=0.001 s, total=3.314 s; sync files=11, longest=0.001 s, average=0.001 s; distance=179 kB, estimate=225 kB; lsn=0/2240CF0, redo lsn=0/223F1A8
+2025-12-11 17:49:01.065 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:49:03.474 CST [183642] LOG:  checkpoint complete: wrote 25 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.407 s, sync=0.001 s, total=2.410 s; sync files=11, longest=0.001 s, average=0.001 s; distance=116 kB, estimate=214 kB; lsn=0/2260648, redo lsn=0/225C3A8
+2025-12-11 17:54:01.575 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:54:03.482 CST [183642] LOG:  checkpoint complete: wrote 20 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.904 s, sync=0.001 s, total=1.908 s; sync files=8, longest=0.001 s, average=0.001 s; distance=102 kB, estimate=203 kB; lsn=0/2275E38, redo lsn=0/2275DE0
+2025-12-11 17:59:01.582 CST [183642] LOG:  checkpoint starting: time
+2025-12-11 17:59:01.986 CST [183642] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.402 s, sync=0.001 s, total=0.404 s; sync files=2, longest=0.001 s, average=0.001 s; distance=21 kB, estimate=185 kB; lsn=0/227B2A0, redo lsn=0/227B248
+2025-12-12 13:11:49.499 CST [278970] ERROR:  column "source" does not exist at character 12
+2025-12-12 13:11:49.499 CST [278970] STATEMENT:  SELECT id, source, telemetry FROM xpu_entries ORDER BY created_at DESC;
+2025-12-12 13:14:20.589 CST [183642] LOG:  checkpoint starting: time
+2025-12-12 13:14:20.894 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.302 s, sync=0.001 s, total=0.305 s; sync files=1, longest=0.001 s, average=0.001 s; distance=3 kB, estimate=167 kB; lsn=0/227BFF8, redo lsn=0/227BFA0
+2025-12-14 15:50:56.961 CST [1124992] FATAL:  role "root" does not exist
+2025-12-14 15:50:56.973 CST [1124995] FATAL:  role "root" does not exist
+2025-12-14 15:53:17.224 CST [1132131] FATAL:  role "root" does not exist
+2025-12-14 15:53:17.230 CST [1132134] FATAL:  role "root" does not exist
+2025-12-14 15:54:42.758 CST [1134277] FATAL:  role "root" does not exist
+2025-12-14 15:54:42.764 CST [1134281] FATAL:  role "root" does not exist
+2025-12-14 16:00:31.242 CST [1142788] FATAL:  role "root" does not exist
+2025-12-14 16:00:31.248 CST [1142791] FATAL:  role "root" does not exist
+2025-12-14 16:04:01.991 CST [1147693] FATAL:  role "postgres" does not exist
+2025-12-14 16:04:30.853 CST [1148355] FATAL:  role "postgres" does not exist
+2025-12-14 16:05:56.542 CST [1150343] FATAL:  role "postgres" does not exist
+2025-12-14 16:06:23.186 CST [1150982] FATAL:  role "postgres" does not exist
+2025-12-14 16:06:49.910 CST [1151622] FATAL:  role "postgres" does not exist
+2025-12-14 16:07:23.971 CST [1153064] FATAL:  role "postgres" does not exist
+2025-12-14 16:09:11.588 CST [1155282] FATAL:  role "postgres" does not exist
+2025-12-14 16:09:49.010 CST [1156055] FATAL:  role "postgres" does not exist
+2025-12-14 16:10:26.646 CST [1156823] FATAL:  role "postgres" does not exist
+2025-12-14 16:11:11.269 CST [1157672] FATAL:  role "postgres" does not exist
+2025-12-14 16:13:04.645 CST [1159977] FATAL:  role "postgres" does not exist
+2025-12-14 16:13:42.648 CST [1160749] FATAL:  role "postgres" does not exist
+2025-12-14 16:14:20.554 CST [1161529] FATAL:  role "postgres" does not exist
+2025-12-14 16:14:58.198 CST [1162296] FATAL:  role "postgres" does not exist
+2025-12-14 16:16:42.019 CST [1164527] FATAL:  role "postgres" does not exist
+2025-12-14 16:17:10.094 CST [1165192] FATAL:  role "postgres" does not exist
+2025-12-14 16:17:39.825 CST [1165892] FATAL:  role "postgres" does not exist
+2025-12-14 16:18:10.502 CST [1166579] FATAL:  role "postgres" does not exist
+2025-12-14 16:19:32.854 CST [1168538] FATAL:  role "postgres" does not exist
+2025-12-14 16:20:04.308 CST [1169222] FATAL:  role "postgres" does not exist
+2025-12-14 16:20:35.876 CST [1169924] FATAL:  role "postgres" does not exist
+2025-12-14 16:21:06.965 CST [1170610] FATAL:  role "postgres" does not exist
+2025-12-14 16:22:28.603 CST [1172541] FATAL:  role "postgres" does not exist
+2025-12-14 16:22:55.978 CST [1173184] FATAL:  role "postgres" does not exist
+2025-12-14 16:23:22.066 CST [1174872] FATAL:  role "postgres" does not exist
+2025-12-14 16:23:51.182 CST [1175614] FATAL:  role "postgres" does not exist
+2025-12-14 16:25:14.020 CST [1177789] FATAL:  role "postgres" does not exist
+2025-12-14 16:25:42.014 CST [1178678] FATAL:  role "postgres" does not exist
+2025-12-14 16:26:10.040 CST [1179365] FATAL:  role "postgres" does not exist
+2025-12-14 16:26:38.241 CST [1180050] FATAL:  role "postgres" does not exist
+2025-12-14 16:28:14.115 CST [1182251] FATAL:  role "postgres" does not exist
+2025-12-14 16:28:44.504 CST [1182977] FATAL:  role "postgres" does not exist
+2025-12-14 16:29:12.065 CST [1183736] FATAL:  role "postgres" does not exist
+2025-12-14 16:29:42.834 CST [1184756] FATAL:  role "postgres" does not exist
+2025-12-14 17:25:13.193 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 17:25:26.020 CST [183642] LOG:  checkpoint complete: wrote 129 buffers (0.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=12.823 s, sync=0.001 s, total=12.828 s; sync files=15, longest=0.001 s, average=0.001 s; distance=767 kB, estimate=767 kB; lsn=0/233BF40, redo lsn=0/233BEE8
+2025-12-14 18:05:13.687 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:05:15.594 CST [183642] LOG:  checkpoint complete: wrote 20 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.905 s, sync=0.001 s, total=1.907 s; sync files=7, longest=0.001 s, average=0.001 s; distance=76 kB, estimate=698 kB; lsn=0/234EFA8, redo lsn=0/234EF50
+2025-12-14 18:10:13.695 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:10:15.701 CST [183642] LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.004 s, sync=0.001 s, total=2.007 s; sync files=7, longest=0.001 s, average=0.001 s; distance=94 kB, estimate=638 kB; lsn=0/23669F0, redo lsn=0/2366998
+2025-12-14 18:15:13.704 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:15:15.511 CST [183642] LOG:  checkpoint complete: wrote 19 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.804 s, sync=0.001 s, total=1.807 s; sync files=6, longest=0.001 s, average=0.001 s; distance=87 kB, estimate=583 kB; lsn=0/237C920, redo lsn=0/237C8C8
+2025-12-14 18:20:13.611 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:20:16.519 CST [183642] LOG:  checkpoint complete: wrote 30 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.906 s, sync=0.001 s, total=2.909 s; sync files=8, longest=0.001 s, average=0.001 s; distance=99 kB, estimate=534 kB; lsn=0/23978A0, redo lsn=0/2395538
+2025-12-14 18:25:13.619 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:25:15.125 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.507 s; sync files=7, longest=0.001 s, average=0.001 s; distance=74 kB, estimate=488 kB; lsn=0/23A7F98, redo lsn=0/23A7F40
+2025-12-14 18:30:13.127 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:30:14.633 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.506 s; sync files=7, longest=0.001 s, average=0.001 s; distance=80 kB, estimate=447 kB; lsn=0/23BC280, redo lsn=0/23BC228
+2025-12-14 18:35:13.733 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:35:14.337 CST [183642] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.602 s, sync=0.001 s, total=0.605 s; sync files=3, longest=0.001 s, average=0.001 s; distance=15 kB, estimate=404 kB; lsn=0/23C01A8, redo lsn=0/23C0150
+2025-12-14 18:40:13.437 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:40:14.943 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.507 s; sync files=7, longest=0.001 s, average=0.001 s; distance=66 kB, estimate=370 kB; lsn=0/23D0BF8, redo lsn=0/23D0BA0
+2025-12-14 18:45:13.989 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:45:14.193 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=13 kB, estimate=335 kB; lsn=0/23D43A8, redo lsn=0/23D4350
+2025-12-14 18:50:13.200 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:50:14.908 CST [183642] LOG:  checkpoint complete: wrote 18 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.704 s, sync=0.002 s, total=1.708 s; sync files=9, longest=0.002 s, average=0.001 s; distance=80 kB, estimate=309 kB; lsn=0/23E8420, redo lsn=0/23E83C8
+2025-12-14 18:55:14.008 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 18:55:15.514 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.507 s; sync files=7, longest=0.001 s, average=0.001 s; distance=79 kB, estimate=286 kB; lsn=0/23FC378, redo lsn=0/23FC320
+2025-12-14 19:00:14.614 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:00:14.818 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=11 kB, estimate=259 kB; lsn=0/23FF028, redo lsn=0/23FEFD0
+2025-12-14 19:05:14.891 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:05:18.000 CST [183642] LOG:  checkpoint complete: wrote 32 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.106 s, sync=0.002 s, total=3.110 s; sync files=9, longest=0.001 s, average=0.001 s; distance=115 kB, estimate=244 kB; lsn=0/241BCC0, redo lsn=0/241BC68
+2025-12-14 19:10:14.078 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:10:15.685 CST [183642] LOG:  checkpoint complete: wrote 17 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.604 s, sync=0.001 s, total=1.607 s; sync files=7, longest=0.001 s, average=0.001 s; distance=82 kB, estimate=228 kB; lsn=0/2430620, redo lsn=0/24305C8
+2025-12-14 19:15:14.785 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:15:16.292 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.507 s; sync files=7, longest=0.001 s, average=0.001 s; distance=86 kB, estimate=214 kB; lsn=0/2445F38, redo lsn=0/2445EE0
+2025-12-14 19:20:14.392 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:20:14.996 CST [183642] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.602 s, sync=0.001 s, total=0.605 s; sync files=3, longest=0.001 s, average=0.001 s; distance=22 kB, estimate=195 kB; lsn=0/244B918, redo lsn=0/244B8C0
+2025-12-14 19:25:15.097 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:25:16.602 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.506 s; sync files=7, longest=0.001 s, average=0.001 s; distance=79 kB, estimate=183 kB; lsn=0/245F560, redo lsn=0/245F508
+2025-12-14 19:30:15.702 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:30:15.906 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=12 kB, estimate=166 kB; lsn=0/2462928, redo lsn=0/24628D0
+2025-12-14 19:35:16.006 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:35:16.210 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.204 s; sync files=2, longest=0.001 s, average=0.001 s; distance=9 kB, estimate=150 kB; lsn=0/2464E48, redo lsn=0/2464DF0
+2025-12-14 19:40:16.310 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:40:16.513 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.204 s; sync files=2, longest=0.001 s, average=0.001 s; distance=11 kB, estimate=136 kB; lsn=0/2467B78, redo lsn=0/2467B20
+2025-12-14 19:45:16.613 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:45:16.817 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.204 s; sync files=2, longest=0.001 s, average=0.001 s; distance=8 kB, estimate=123 kB; lsn=0/2469C18, redo lsn=0/2469BC0
+2025-12-14 19:50:16.820 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:50:18.327 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.002 s, total=1.508 s; sync files=7, longest=0.001 s, average=0.001 s; distance=68 kB, estimate=118 kB; lsn=0/247ACD0, redo lsn=0/247AC78
+2025-12-14 19:55:16.427 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 19:55:16.632 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=11 kB, estimate=107 kB; lsn=0/247DB08, redo lsn=0/247DAB0
+2025-12-14 20:00:16.698 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:00:16.902 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=10 kB, estimate=97 kB; lsn=0/2480568, redo lsn=0/2480510
+2025-12-14 20:05:17.002 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:05:17.206 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.201 s, sync=0.001 s, total=0.204 s; sync files=2, longest=0.001 s, average=0.001 s; distance=10 kB, estimate=89 kB; lsn=0/2482E80, redo lsn=0/2482E28
+2025-12-14 20:10:17.209 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:10:17.414 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=12 kB, estimate=81 kB; lsn=0/2486270, redo lsn=0/2486218
+2025-12-14 20:15:17.514 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:15:19.019 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.506 s; sync files=7, longest=0.001 s, average=0.001 s; distance=72 kB, estimate=80 kB; lsn=0/2498438, redo lsn=0/24983E0
+2025-12-14 20:20:17.022 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:20:17.527 CST [183642] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.502 s, sync=0.001 s, total=0.505 s; sync files=2, longest=0.001 s, average=0.001 s; distance=26 kB, estimate=75 kB; lsn=0/249EEA0, redo lsn=0/249EE48
+2025-12-14 20:25:17.538 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:25:17.742 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.204 s; sync files=2, longest=0.001 s, average=0.001 s; distance=14 kB, estimate=69 kB; lsn=0/24A28E0, redo lsn=0/24A2888
+2025-12-14 20:30:17.776 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:30:17.981 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=11 kB, estimate=63 kB; lsn=0/24A5850, redo lsn=0/24A57F8
+2025-12-14 20:35:17.985 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:35:20.894 CST [183642] LOG:  checkpoint complete: wrote 30 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.906 s, sync=0.001 s, total=2.909 s; sync files=8, longest=0.001 s, average=0.001 s; distance=97 kB, estimate=97 kB; lsn=0/24C10B8, redo lsn=0/24BDD10
+2025-12-14 20:40:17.994 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:40:18.197 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.204 s; sync files=2, longest=0.001 s, average=0.001 s; distance=15 kB, estimate=89 kB; lsn=0/24C1CC0, redo lsn=0/24C1C68
+2025-12-14 20:45:17.297 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:45:17.501 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.204 s; sync files=2, longest=0.001 s, average=0.001 s; distance=9 kB, estimate=81 kB; lsn=0/24C4140, redo lsn=0/24C40E8
+2025-12-14 20:50:17.601 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:50:19.108 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.508 s; sync files=7, longest=0.001 s, average=0.001 s; distance=72 kB, estimate=80 kB; lsn=0/24D6408, redo lsn=0/24D63B0
+2025-12-14 20:55:17.208 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 20:55:17.413 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=13 kB, estimate=73 kB; lsn=0/24D9838, redo lsn=0/24D97E0
+2025-12-14 21:00:17.513 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 21:00:17.717 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.204 s; sync files=2, longest=0.001 s, average=0.001 s; distance=9 kB, estimate=67 kB; lsn=0/24DBFF8, redo lsn=0/24DBFA0
+2025-12-14 21:05:17.719 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 21:05:19.226 CST [183642] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.504 s, sync=0.001 s, total=1.507 s; sync files=7, longest=0.001 s, average=0.001 s; distance=76 kB, estimate=76 kB; lsn=0/24EF1C8, redo lsn=0/24EF170
+2025-12-14 21:10:17.326 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 21:10:17.531 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=10 kB, estimate=69 kB; lsn=0/24F1DC0, redo lsn=0/24F1D68
+2025-12-14 21:15:17.631 CST [183642] LOG:  checkpoint starting: time
+2025-12-14 21:15:17.835 CST [183642] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.001 s, total=0.205 s; sync files=2, longest=0.001 s, average=0.001 s; distance=6 kB, estimate=63 kB; lsn=0/24F37B0, redo lsn=0/24F3758

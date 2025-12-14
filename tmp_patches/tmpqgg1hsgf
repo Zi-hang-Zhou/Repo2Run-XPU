@@ -1,0 +1,10 @@
+
+/repo/pyproject.toml
+<<<<<<< SEARCH
+[tool.poetry.dev-dependencies]
+fastapi = ">=0.93.0"
+=======
+[tool.poetry.dev-dependencies]
+fastapi = ">=0.93.0"
+aiosqlite = "^0.22.0"
+>>>>>>> REPLACE

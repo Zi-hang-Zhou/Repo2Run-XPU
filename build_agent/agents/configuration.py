@@ -21,6 +21,30 @@ from utils.tools_config import Tools
 from utils.split_cmd import split_cmd_statements
 import re
 import time
+import openai
+import requests
+from requests.adapters import HTTPAdapter
+import ssl
+from urllib3.util.ssl_ import create_urllib3_context
+from utils.xpu_handler import XpuHandler
+
+# 创建一个不验证 SSL 的 SSL 上下文
+class NoVerifySSLContextHttpAdapter(HTTPAdapter):
+    def init_poolmanager(self, *args, **kwargs):
+        context = create_urllib3_context()
+        context.check_hostname = False
+        context.verify_mode = ssl.CERT_NONE  # 这会跳过 SSL 验证
+        kwargs['ssl_context'] = context
+        return super().init_poolmanager(*args, **kwargs)
+
+    def cert_verify(self, conn, url, verify, cert):
+        # 强制不验证
+        super().cert_verify(conn, url, verify=False, cert=cert)
+
+# 强行替换 openai 库的默认 session
+session = requests.Session()
+session.mount('https://', NoVerifySSLContextHttpAdapter())
+openai.requestssession = session
 
 def res_truncate(text):
     keywords = ['''waitinglist command usage error, the following command formats are leagal:
@@ -94,6 +118,12 @@ class Configuration(Agent):
             Tools.clear_configuration,
         ]
         self.image_name = image_name
+        # --- Add Experience Retriever ---
+        # 假设 xpu.jsonl 位于 root_dir 目录下
+        # --- [XPU INTEGRATION] ---
+        # 初始化 XpuHandler (自动连接向量数据库)
+        self.xpu_handler = XpuHandler()
+        # --------------------------------
         self.outer_commands = list()
         tools_list = ""
         for tool in self.tool_lib:
@@ -233,6 +263,9 @@ VERY IMPORTANT TIPS:
         print(self.init_prompt)
         start_time0 = time.time()
         self.messages = []
+        openai.api_key = os.environ["OPENAI_API_KEY"]
+        openai.api_base = os.environ.get("OPENAI_API_BASE", "https://api.openai.com/v1") # 它会读取您 export 的变量
+        openai.verify_ssl_certs = False # <--- 在这里添加这一行
         if "gpt" in self.model:
             system_message = {"role": "system", "content": self.init_prompt}
             self.messages.append(system_message)
@@ -247,6 +280,8 @@ VERY IMPORTANT TIPS:
         turn = 0
         cost_tokens = 0
         diff_no = 1
+        last_round_xpu_ids = []
+        task_success_flag = False
         def manage_token_usage(messages, max_tokens=150000):
             """
             在消息列表超过Token限制时，从最老的消息开始删除，直到总Token数量低于max_tokens。
@@ -328,9 +363,11 @@ VERY IMPORTANT TIPS:
                     self.outer_commands.append({"command": commands[i], "returncode": -2, "time": -1})
                     start_time = time.time()
                     vdb = subprocess.run("df -h | grep '/dev/vdb' | awk '{print $5}'", shell=True, capture_output=True, text=True)
-                    if float(vdb.stdout.strip().split('%')[0]) > 90:
-                        print('Warning! The disk /dev/vdb has occupied over 90% memories!')
-                        sys.exit(3)
+                    vdb_output = vdb.stdout.strip()
+                    if vdb_output and '%' in vdb_output:
+                        if float(vdb.stdout.strip().split('%')[0]) > 90:
+                            print('Warning! The disk /dev/vdb has occupied over 90% memories!')
+                            sys.exit(3)
                     
                     # 切换python版本
                     if commands[i].strip().startswith('change_python_version'):
@@ -437,6 +474,7 @@ VERY IMPORTANT TIPS:
                         self.sandbox_session = self.sandbox.get_session()
                         self.outer_commands[-1]["returncode"] = 1
                     if 'Congratulations, you have successfully configured the environment!' in sandbox_res and '# This is $runtest.py$' not in sandbox_res:
+                        task_success_flag = True 
                         try:
                             pipdeptree_json, pipdeptree_json_return_code =  self.sandbox_session.execute('pipdeptree --json-tree', waiting_list, conflict_list)
                         except:
@@ -527,6 +565,25 @@ The edit format is as follows:
             system_res += f'You are currently in a [{self.image_name}] container.\n'
             reminder = f"\nENVIRONMENT REMINDER: You have {self.max_turn - turn} turns left to complete the task."
             system_res += reminder
+            # =================== Experience Retrieval Integration ===================
+           # =================== [XPU INTEGRATION] 向量检索集成 ===================
+            # 获取最近一次的观测结果 (包含报错信息)
+            current_observation = locals().get('sandbox_res', '')
+            
+            # 调用 XpuHandler: 自动检测错误 -> 向量搜索 -> 格式化建议
+            # (retrieve_hints 内部已经包含了去重和错误关键词检测逻辑)
+            xpu_hint_block, current_xpu_ids = self.xpu_handler.retrieve_hints(current_observation)
+            if last_round_xpu_ids:
+                self.xpu_handler.update_realtime_feedback(last_round_xpu_ids, current_xpu_ids)
+            
+            # [新增] 3. 更新缓存
+            last_round_xpu_ids = current_xpu_ids
+            if xpu_hint_block:
+                # 3. 将“前人的智慧”注入给 LLM
+                system_res += "\n\n" + xpu_hint_block
+                print(f"[XPU] Injected hints based on current error.")
+            # ======================================================================
+            # ========================================================================
             success_cmds = extract_cmds(self.sandbox.commands)
 
 
@@ -587,7 +644,7 @@ The edit format is as follows:
             if pip_list_return_code == 0:
                 with open(f'{self.root_dir}/output/{self.full_name}/pip_list.json', 'w') as w2:
                     w2.write(json.dumps(json.loads(pip_list), indent=4))
-        
+        self.xpu_handler.finalize_session(task_success_flag)
         append_trajectory(trajectory, self.messages, 'configuration')
         end_time0 = time.time()
         cost_time = end_time0 - start_time0

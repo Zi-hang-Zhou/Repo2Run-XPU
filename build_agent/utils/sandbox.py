@@ -164,7 +164,7 @@ RUN mkdir -p /repo && git config --global --add safe.directory /repo
 
         try:
             # subprocess.run(["docker", "build", ".", "--no-cache", "-t", self.namespace], cwd=dockerfile_path, check=True)
-            subprocess.run(["docker", "build", ".", "-t", self.namespace], cwd=dockerfile_path, check=True)
+            subprocess.run(["docker", "build", "--network=host", ".", "-t", self.namespace], cwd=dockerfile_path, check=True)
             return True
         except subprocess.CalledProcessError as e:
             print(f"Image build failed: {e}")
@@ -232,7 +232,7 @@ RUN mkdir -p /repo && git config --global --add safe.directory /repo
                 volumes={host_path: {'bind': container_path, 'mode': 'rw'}},
                 privileged=True,
                 mem_limit='30g',
-                network_mode='bridge',
+                network_mode='host',
                 cpuset_cpus='0-19',
                 )
 
@@ -272,21 +272,37 @@ RUN mkdir -p /repo && git config --global --add safe.directory /repo
                 tty=True, 
                 stdin_open=True, 
                 privileged=True,
-                volumes={host_path: {'bind': container_path, 'mode': 'rw'}}
+                volumes={host_path: {'bind': container_path, 'mode': 'rw'}},
+                network_mode="host"
                 )
 
             print(f"Container {self.container.name} {self.container.short_id} started with image {image}")
             
-            current_file_path = os.path.abspath(__file__)
-            current_directory = os.path.dirname(current_file_path)
-            project_directory = os.path.dirname(current_directory)
+            # --- 修复：为 'tools' 和 'repo' 定义正确的、不同的路径 ---
             
-            cmd = f"chmod -R 777 {project_directory}/tools && docker cp {project_directory}/tools {self.container.name}:/home"
-            subprocess.run(cmd, check=True, shell=True)
+            # 1. 计算路径
+            # current_file_path = /home/zihang/Repo2Run/build_agent/utils/sandbox.py
+            current_file_path = os.path.abspath(__file__)
+            # current_directory = /home/zihang/Repo2Run/build_agent/utils
+            current_directory = os.path.dirname(current_file_path)
+            # build_agent_dir = /home/zihang/Repo2Run/build_agent
+            build_agent_dir = os.path.dirname(current_directory)
+            # true_root_dir = /home/zihang/Repo2Run
+            true_root_dir = os.path.dirname(build_agent_dir)
 
-            # 把utils/repo中的内容复制到根目录/中
-            cmd = f"docker cp {project_directory}/utils/repo/{self.full_name}/repo {self.container.name}:/"
-            subprocess.run(cmd, check=True, shell=True)
+            # 2. 复制 'tools' 文件夹（位于 /build_agent/tools）
+            tools_dir = os.path.join(build_agent_dir, "tools")
+            if os.path.exists(tools_dir):
+                cmd_tools = f"chmod -R 777 {tools_dir} && docker cp {tools_dir} {self.container.name}:/home"
+                subprocess.run(cmd_tools, check=True, shell=True)
+            else:
+                print(f"警告：未在 {tools_dir} 找到 'tools' 文件夹。'runtest' 命令可能无法使用。")
+
+            # 3. 复制 'repo' 文件夹（位于 /utils/repo/...）
+            repo_path_to_copy = os.path.join(true_root_dir, "utils", "repo", self.full_name, "repo")
+            cmd_repo = f"docker cp {repo_path_to_copy} {self.container.name}:/"
+            subprocess.run(cmd_repo, check=True, shell=True)
+            # --- 修复结束 ---
             return 1
         except Exception as e:
             print(f"Container start faild: {e}")
@@ -456,7 +472,7 @@ RUN mkdir -p /repo && git config --global --add safe.directory /repo
                             msg = f'\nRunning `{command}`...\n'
                             msg += f'The file {file_path} does not exist. Please ensure you have entered the correct absolute path, not a relative path! If you are unsure, you can use commands like `ls` to verify.'
                             return msg, 1
-                        subprocess.run(f'sudo chown huruida:huruida {project_directory}/repo/{self.sandbox.full_name}/repo/{file_path.split("/")[-1]}', shell=True, capture_output=True)
+                        ## subprocess.run(f'sudo chown huruida:huruida {project_directory}/repo/{self.sandbox.full_name}/repo/{file_path.split("/")[-1]}', shell=True, capture_output=True)
                         with OutputCollector() as collector:
                             waiting_list.addfile(f'{project_directory}/utils/repo/{self.sandbox.full_name}/repo/{file_path.split("/")[-1]}', conflict_list)
                         result_message = f'Running `{command}`...\n' + collector.get_output() + '\n'
@@ -587,7 +603,7 @@ Explanation: Clear all the items in the waiting list.'''
                 
                 except pexpect.TIMEOUT:
                     if match_runtest(command) or match_poetryruntest(command):
-                        os.sytem(f'touch {self.sandbox.root_path}/output/{self.sandbox.full_name}/TIMEOUT')
+                        os.system(f'touch {self.sandbox.root_path}/output/{self.sandbox.full_name}/TIMEOUT')
                         sys.exit(123)
                     partial_output = self.sandbox.shell.before.decode('utf-8').strip()
                     partial_output_lines = partial_output.split('\n')

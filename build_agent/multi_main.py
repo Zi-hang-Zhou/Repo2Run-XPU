@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License. 
 # You may obtain a copy of the License at 
 
-#     https://www.apache.org/licenses/LICENSE-2.0
+#     https://www.apache.org/licenses/LICENSE-2.0
 
 # Unless required by applicable law or agreed to in writing, software 
 # distributed under the License is distributed on an "AS IS" BASIS, 
@@ -19,58 +19,87 @@ import os
 import sys
 import random
 import time
+import signal
+
+
 
 
 def run_command(command):
-    # os.system('docker images --filter "dangling=true" --format "{{.ID}}" | xargs -r docker rmi')
+    # 忽略子进程的中断信号，防止 Ctrl+C 导致混乱
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
+
     current_time = time.time()
-    # 将时间戳转换为本地时间的 struct_time 对象
     local_time = time.localtime(current_time)
-
-    # 将 struct_time 对象格式化为字符串
     formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", local_time)
-    print(f'Start time: {formatted_time}')
-    full_name = command.split('python -u main.py "')[1].split('"')[0]
-
-    vdb = subprocess.run("df -h | grep '/dev/vdb' | awk '{print $5}'", shell=True, capture_output=True, text=True)
-    if float(vdb.stdout.strip().split('%')[0]) > 90:
-        print('Warning! The disk /dev/vdb has occupied over 90% memories!')
-        sys.exit(1)
+    
     try:
-        print(f'Begin: {command}')
-        subprocess.run(command, shell=True)
-        print(f'Finish: {command}')
-        finish_command.append(command.split('python main.py "')[1].split('"')[0].lower().replace('/', '_').replace('-', '_'))
-        for fc in finish_command:
-            try:
-                rm_cmd = f'docker ps -a --filter ancestor={fc}:tmp -q | xargs -r docker rm'
-                subprocess.run(rm_cmd, shell=True, capture_output=True, text=True)
-            except:
-                pass
+        # 尝试提取仓库名用于日志显示
+        full_name = command.split('--full_name "')[1].split('"')[0]
+    except:
+        full_name = "Unknown-Repo"
+
+    print(f'[{full_name}] Start time: {formatted_time}')
+
+    # --- 修复磁盘检查逻辑 ---
+    try:
+        # 修改为检查根目录 / 的使用率，而不是特定的 /dev/vdb
+        # awk 'NR==2 {print $5}' 提取第二行的第五列（使用率百分比）
+        df_cmd = "df -h / | awk 'NR==2 {print $5}'"
+        disk_check = subprocess.run(df_cmd, shell=True, capture_output=True, text=True)
+        
+        # 去掉百分号并转换为浮点数
+        usage_str = disk_check.stdout.strip().replace('%', '')
+        
+        if usage_str and float(usage_str) > 99:
+            print(f'[{full_name}] Warning! Disk usage is critical ({usage_str}%). Skipping task to protect server.')
+            return
     except Exception as e:
-        print(f"Error: {command}, {e}")
+        # 如果检查失败，打印警告但不要崩溃，继续执行任务
+        print(f"[{full_name}] Warning: Could not check disk usage ({e}). Proceeding anyway.")
+    # -----------------------
+
+    try:
+        print(f'[{full_name}] Begin execution...')
+        
+        # 执行 main.py
+        subprocess.run(command, shell=True, check=True)
+        
+        print(f'[{full_name}] Finish: Success')
+        
+        # 尝试清理该仓库相关的 Docker 容器 (使用更安全的清理方式)
+        repo_tag = full_name.lower().replace('/', '_').replace('-', '_')
+        rm_cmd = f'docker ps -a --filter ancestor={repo_tag}:tmp -q | xargs -r docker rm'
+        subprocess.run(rm_cmd, shell=True, capture_output=True)
+
+    except subprocess.CalledProcessError as e:
+        print(f"[{full_name}] Error: Task failed with exit code {e.returncode}")
+    except Exception as e:
+        print(f"[{full_name}] Error: Unexpected exception: {e}")
 
 if __name__ == '__main__':
-    os.system('docker rm -f $(docker ps -aq)')
+    # 初始清理
+    os.system('docker rm -f $(docker ps -aq) > /dev/null 2>&1')
 
     if len(sys.argv) != 2:
         print('Usage: python multi_main.py <script_path>')
         sys.exit(1)
     script_path = sys.argv[1]
 
-
-    # 要执行的命令列表
     try:
         with open(script_path, 'r') as r1:
             commands = r1.readlines()
-    except:
-        print(f'Error: {script_path}')
+        # 过滤掉空行和注释
+        commands = [cmd.strip() for cmd in commands if cmd.strip() and not cmd.strip().startswith('#')]
+    except Exception as e:
+        print(f'Error reading script file: {e}')
         sys.exit(1)
 
-    finish_command = list()
     random.shuffle(commands)
 
-    # 创建进程池，最多同时运行5个进程
-    with multiprocessing.Pool(processes=3) as pool:
-        # 运行所有的命令
+    print(f"Loaded {len(commands)} tasks. Starting multiprocessing pool (3 processes)...")
+
+    # 创建进程池，最多同时运行 1 个进程
+    with multiprocessing.Pool(processes=1) as pool:
         pool.map(run_command, commands)
+    
+    print("All tasks completed.")

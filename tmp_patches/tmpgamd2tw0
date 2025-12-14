@@ -1,0 +1,18 @@
+
+/repo/llvmlite/tests/__init__.py
+<<<<<<< SEARCH
+def main():
+=======
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--verbosity', type=int, default=1, help='Verbosity level of tests output')
+    parser.add_argument('--xmloutput', type=str, default=None, help='Path of XML output directory (optional)')
+    args = parser.parse_args()
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    res = run_tests()
+=======
+    res = run_tests(verbosity=args.verbosity, xmloutput=args.xmloutput)
+>>>>>>> REPLACE

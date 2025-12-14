@@ -1,0 +1,14 @@
+
+/usr/local/lib/python3.10/site-packages/genericm2m/models.py
+<<<<<<< SEARCH
+    parent_type = models.ForeignKey(ContentType, related_name="child_%(class)s")
+=======
+    parent_type = models.ForeignKey(ContentType, related_name="child_%(class)s", on_delete=models.CASCADE)
+>>>>>>> REPLACE
+
+/usr/local/lib/python3.10/site-packages/tagging/models.py
+<<<<<<< SEARCH
+    from django.utils.encoding import smart_text
+=======
+    from django.utils.encoding import smart_str as smart_text
+>>>>>>> REPLACE
