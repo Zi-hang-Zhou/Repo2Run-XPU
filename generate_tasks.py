@@ -17,8 +17,6 @@ with open(input_file, 'r') as f, open(output_file, 'w') as out:
         repo = data['repository']
         sha = data['revision']
         
-        # 构造符合 multi_main.py 解析规则的命令 (注意 full_name 必须带双引号)
-        # 假设你的 root_path 是当前目录 .
         cmd = f'python build_agent/main.py --full_name "{repo}" --sha "{sha}" --root_path . --llm "gpt-4o-2024-05-13"'
         
         out.write(cmd + "\n")

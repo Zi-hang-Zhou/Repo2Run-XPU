@@ -26,12 +26,12 @@ def test_database_connection():
     dns = os.environ.get('DATABASE_URL') or os.environ.get('dns') or os.environ.get('DNS')
     
     if not dns:
-        print("❌ 未设置数据库连接字符串 (请在 .env 中设置 DATABASE_URL 或 dns)")
+        print(" 未设置数据库连接字符串 (请在 .env 中设置 DATABASE_URL 或 dns)")
         return False
     
     # 隐藏密码打印
     safe_dns = dns.split('@')[-1] if '@' in dns else '...'
-    print(f"✅ 数据库连接字符串找到: ...@{safe_dns}")
+    print(f" 数据库连接字符串找到: ...@{safe_dns}")
     
     try:
         import psycopg2
@@ -43,10 +43,10 @@ def test_database_connection():
             # 检查pgvector扩展
             cur.execute("SELECT EXISTS(SELECT 1 FROM pg_extension WHERE extname = 'vector');")
             has_vector = cur.fetchone()[0]
-            print(f"  pgvector扩展: {'✅ 已安装' if has_vector else '❌ 未安装'}")
+            print(f"  pgvector扩展: {' 已安装' if has_vector else ' 未安装'}")
             
             if not has_vector:
-                print("  ⚠️  需要安装pgvector扩展: CREATE EXTENSION vector;")
+                print(" 需要安装pgvector扩展: CREATE EXTENSION vector;")
                 conn.close()
                 return False
             
@@ -59,7 +59,7 @@ def test_database_connection():
                 );
             """)
             has_table = cur.fetchone()[0]
-            print(f"  xpu_entries表: {'✅ 已存在' if has_table else '❌ 不存在'}")
+            print(f"  xpu_entries表: {'已存在' if has_table else '不存在'}")
             
             if has_table:
                 cur.execute("SELECT COUNT(*) FROM xpu_entries;")
@@ -67,19 +67,19 @@ def test_database_connection():
                 print(f"  xpu_entries记录数: {count}")
                 
                 if count == 0:
-                    print("  ⚠️  表中没有数据，请运行: python scripts/index_xpu_to_vector_db_enhanced.py index ...")
+                    print("  表中没有数据")
             else:
-                print("  ⚠️  表不存在，会在首次运行 index 脚本时自动创建")
+                print("表不存在，会在首次运行 index 脚本时自动创建")
         
         conn.close()
-        print("✅ 数据库连接测试通过！")
+        print("数据库连接测试通过！")
         return True
         
     except ImportError:
-        print("❌ 缺少psycopg2库，请安装: pip install psycopg2-binary")
+        print("缺少psycopg2库，请安装: pip install psycopg2-binary")
         return False
     except Exception as e:
-        print(f"❌ 数据库连接失败: {e}")
+        print(f"数据库连接失败: {e}")
         return False
 
 
@@ -91,22 +91,21 @@ def test_openai_api():
     
     api_key = os.environ.get('OPENAI_API_KEY')
     if not api_key:
-        print("❌ 未设置 OPENAI_API_KEY")
+        print("未设置 OPENAI_API_KEY")
         return False
     
-    print(f"✅ OPENAI_API_KEY: 已设置")
+    print(f"OPENAI_API_KEY: 已设置")
     
     try:
-        # --- 修改点：指向 build_agent.xpu ---
         from build_agent.xpu.xpu_vector_store import text_to_embedding
         
         print("  测试生成embedding (请求API)...")
         embedding = text_to_embedding("test query")
-        print(f"  ✅ Embedding生成成功 (维度: {len(embedding)})")
+        print(f"  Embedding生成成功 (维度: {len(embedding)})")
         return True
         
     except Exception as e:
-        print(f"❌ Embedding生成失败: {e}")
+        print(f"Embedding生成失败: {e}")
         return False
 
 
@@ -126,22 +125,22 @@ def test_xpu_vector_store():
         
         print("  初始化XpuVectorStore...")
         store = XpuVectorStore(connection_string=dns)
-        print("  ✅ XpuVectorStore初始化成功")
+        print("  XpuVectorStore初始化成功")
         
         # 测试搜索功能
         print("  测试搜索功能 (Dummy Search)...")
         test_embedding = [0.0] * EMBEDDING_DIM 
         results = store.search(test_embedding, k=1)
-        print(f"  ✅ 搜索功能正常 (返回 {len(results)} 条结果)")
+        print(f"  搜索功能正常 (返回 {len(results)} 条结果)")
         
         store.close()
         return True
         
     except ImportError as e:
-        print(f"❌ 导入错误 (路径不对?): {e}")
+        print(f"导入错误 (路径不对?): {e}")
         return False
     except Exception as e:
-        print(f"❌ 初始化失败: {e}")
+        print(f"初始化失败: {e}")
         import traceback
         print(traceback.format_exc())
         return False
@@ -161,7 +160,7 @@ def main():
     
     all_passed = True
     for name, passed in results:
-        status = "✅ 通过" if passed else "❌ 失败"
+        status = "通过" if passed else "失败"
         print(f"  {name}: {status}")
         if not passed:
             all_passed = False

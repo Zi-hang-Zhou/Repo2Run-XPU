@@ -20,20 +20,20 @@ def view_latest_xpu(limit=20):
         
         rows = cur.fetchall()
         
-        print(f"\n📚 === 最新入库的 {len(rows)} 条经验 === 📚\n")
+        print(f"\n=== 最新入库的 {len(rows)} 条经验 === \n")
         
         for row in rows:
             xpu_id, context, advice, atoms, created_at = row
             
-            print(f"🆔 ID: {xpu_id}")
-            print(f"⏰ 时间: {created_at}")
+            print(f"ID: {xpu_id}")
+            print(f"时间: {created_at}")
             
             # 显示上下文 (针对哪个库/Python版本)
             ctx_str = json.dumps(context, ensure_ascii=False)
-            print(f"🌍 上下文: {ctx_str}")
+            print(f"上下文: {ctx_str}")
             
             # 显示建议 (Agent 看到的提示)
-            print("💡 建议 (Advice):")
+            print("建议 (Advice):")
             if isinstance(advice, list):
                 for i, line in enumerate(advice, 1):
                     print(f"   {i}. {line}")
@@ -42,7 +42,6 @@ def view_latest_xpu(limit=20):
                 
             # 显示原子操作 (具体的命令)
             print("🛠️  原子操作 (Atoms):")
-            # atoms 通常存为 json 对象列表
             if isinstance(atoms, list):
                 for atom in atoms:
                     name = atom.get('name')
@@ -54,7 +53,7 @@ def view_latest_xpu(limit=20):
         conn.close()
         
     except Exception as e:
-        print(f"❌ 查询失败: {e}")
+        print(f"查询失败: {e}")
 
 if __name__ == "__main__":
     view_latest_xpu()

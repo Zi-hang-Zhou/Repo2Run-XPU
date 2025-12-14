@@ -15,7 +15,7 @@ def view_sources():
             has_source_col = True
         except psycopg2.errors.UndefinedColumn:
             conn.rollback() # 回滚事务
-            print("⚠️  提示：数据库中没有 source 字段，将尝试从 ID 解析仓库名。")
+            print("提示：数据库中没有 source 字段，将尝试从 ID 解析仓库名。")
             cur.execute("SELECT id, NULL, telemetry FROM xpu_entries ORDER BY created_at DESC;")
             has_source_col = False
 
@@ -44,7 +44,7 @@ def view_sources():
         conn.close()
         
     except Exception as e:
-        print(f"❌ 查询失败: {e}")
+        print(f"查询失败: {e}")
 
 if __name__ == "__main__":
     view_sources()
